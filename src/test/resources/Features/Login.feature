@@ -1,5 +1,5 @@
 # to run all scenarios together, we can use a general tag
-@login
+@login @smoke
 Feature: Eurotech Login Test
 
   Background:

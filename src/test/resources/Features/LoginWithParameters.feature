@@ -6,13 +6,13 @@ Feature: Login as different users
     When The user logs in using "eurotech@gmail.com" and "Test12345!" credentials
     Then The user should be able to login
     Then The welcome message contains "Teacher"
-
+@smoke
   Scenario: Login as student1 with parameters
     Given The user is on the login page
     When The user logs in using "seyit@gmail.com" and "Seyit!" credentials
     Then The user should be able to login
     Then The welcome message contains "Seyit"
-
+@smoke
   Scenario: Login as student2 with parameters
     Given The user is on the login page
     When The user logs in using "gulcan@gmail.com" and "newjob2023" credentials
