@@ -41,6 +41,9 @@ public class DashboardPage extends BasePage{
     @FindBy(xpath = "//*[text()='Apple']/following-sibling::*[1]")
     public WebElement applesJobTitle;
 
+    @FindBy(xpath = "//*[@id='dashboard-experince-item-raw']//time/..")
+    public WebElement experienceDate;
+
 
 
     public void navigateMenu(String menuName){
@@ -72,5 +75,8 @@ public class DashboardPage extends BasePage{
     }
     public String getHeader(String name){
         return   Driver.get().findElement(By.xpath("//*[text()='"+name+"']")).getText();
+    }
+    public String getCompanyName(String title){
+        return Driver.get().findElement(By.xpath("//td[text()='"+title+"']/../td[1]")).getText();
     }
 }

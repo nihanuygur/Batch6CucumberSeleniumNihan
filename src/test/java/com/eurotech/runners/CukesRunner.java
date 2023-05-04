@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         dryRun = false,
         // if true, dryRun will get only undefined step definition, if false, it will execute normal
 
-        tags = "@rerun"
+        tags = "@ddf"
 
 //        tags = "@login and not @wip" // except @wip, all scenarios will be executed
 //        tags = "@login and not @wip and @blaBla" // what if there are more than one  except tags:)
