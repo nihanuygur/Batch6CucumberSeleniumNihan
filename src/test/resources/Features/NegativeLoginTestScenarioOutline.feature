@@ -22,7 +22,7 @@ Feature: Negative Login Test
       | username       | password  |
       | eurotech@gmail | Test12345 |
 
-  @wip
+
   Scenario Outline: Login as an User with invalid parameters
     Given The user is on the login page
     When The user logs in using invalid "<username>" and "<password>" credentials

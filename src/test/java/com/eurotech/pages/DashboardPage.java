@@ -45,6 +45,9 @@ public class DashboardPage extends BasePage{
     public WebElement experienceDate;
 
 
+    @FindBy(xpath = "//*[text()='Experience Added']")
+    public WebElement experienceAddedMessage;
+
 
     public void navigateMenu(String menuName){
         Driver.get().findElement(By.xpath("//*[text()='"+menuName+"']")).click();

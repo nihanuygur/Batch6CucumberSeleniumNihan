@@ -17,7 +17,6 @@ Feature: Navigation Menu Test
     And The user navigates to All Post Menu
     Then The user able to see Post text
 
-
   Scenario: Navigates Dashboard Menu
     Given The user is on the login page
     When The user enters teacher credentials

@@ -5,7 +5,7 @@ Feature: DDF
     Given The user is on the login page
     When The user enters "<Sheet Name>" and row number <Username and Password>
     Then The welcome message contains in excel <Row Number for Name>
-#    Then The user verify that company name <Row Number for Company>
+    Then The user verify that company name <Row Number for Company>
     Then The user verify that company name <Row Number for Company> and get date from browser <Row Number for Date>
     Then The user get date from browser <Row Number for Date>
 
