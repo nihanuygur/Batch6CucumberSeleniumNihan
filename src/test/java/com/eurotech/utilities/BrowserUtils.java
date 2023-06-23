@@ -1,14 +1,20 @@
 package com.eurotech.utilities;
 
+import com.eatthepath.otp.TimeBasedOneTimePasswordGenerator;
 import junit.framework.Assert;
 
+import org.apache.commons.codec.binary.Base32;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.crypto.spec.SecretKeySpec;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -404,4 +410,20 @@ public class BrowserUtils {
 
     }
 
+    public static String generateOTPProvidingGoogleAuthString(String googleAuthString) throws NoSuchAlgorithmException, InvalidKeyException, InvalidKeyException, InvalidKeyException {
+        final TimeBasedOneTimePasswordGenerator totp = new TimeBasedOneTimePasswordGenerator();
+
+        String otp;
+        Base32 base32 = new Base32();
+        byte[] bytes = base32.decode(googleAuthString);
+        SecretKeySpec macKey = new SecretKeySpec(bytes, "RAW");
+
+        otp=totp.generateOneTimePasswordString(macKey, Instant.now());
+
+        return otp;
+
+    }
+
 }
+
+

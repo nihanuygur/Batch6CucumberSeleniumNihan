@@ -1,4 +1,4 @@
-@report
+@report @wip
 Feature: Navigation Menu Test
 
   @teacher @developersMenu

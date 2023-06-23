@@ -46,6 +46,11 @@
             <artifactId>poi-ooxml</artifactId>
             <version>5.2.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.eatthepath</groupId>
+            <artifactId>java-otp</artifactId>
+            <version>0.3.1</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
