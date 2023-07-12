@@ -7,6 +7,7 @@ Feature: Login as different users
     Then The user should be able to login
     Then The welcome message contains "Teacher"
 
+    @mobile
   Scenario: Login as student1 with parameters
     Given The user is on the login page
     When The user logs in using "seyit@gmail.com" and "Seyit!" credentials
