@@ -4,12 +4,13 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 public class ConfigurationReader {
+
     private static Properties properties;
 
 
     static {
         try {
-            // what files to read
+            // what file to read
             String path = "configuration.properties";
             // The FileInputStream class of the java.io package can be used to read data (in bytes) from files.
             FileInputStream input = new FileInputStream(path);
@@ -27,4 +28,5 @@ public class ConfigurationReader {
     public static String get(String keyName){
         return properties.getProperty(keyName);
     }
+
 }

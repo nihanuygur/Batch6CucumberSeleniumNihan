@@ -1,5 +1,6 @@
 package com.eurotech.pages;
 
+import com.eurotech.utilities.BrowserUtils;
 import com.eurotech.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -11,7 +12,7 @@ public class LoginPage extends BasePage{
 
 
 
-    @FindBy(css = "#rcc-confirm-button")
+    @FindBy(id = "rcc-confirm-button")
     public WebElement iUnderstandButton;
 
     @FindBy(name = "email")
@@ -23,40 +24,42 @@ public class LoginPage extends BasePage{
     @FindBy(id = "loginpage-form-btn")
     public WebElement loginButton;
 
-    @FindBy(xpath = "//div[@class='alert alert-danger']")
+    @FindBy(xpath = "//*[contains(text(),'valid')]")
     public WebElement warningMessage;
-
-   @FindBy(xpath = "//*[@id='loginpage-form']")
-    public WebElement loginPart;
 
 
     //@FindAll
     //To use multiple locator if at least one of them is matching it will find the web element.
     @FindAll({
             @FindBy(id = "loginpage-input-email"),
-            @FindBy(name = "email")})
-    public WebElement emailInput;
+            @FindBy(name="emailfhfdjkhfjkdshfkjdshfjkdhjkfhdskj")})
+
+    public WebElement usernameInputFindAll;
+
 
 
     //@FindBys
     // if the locators are matching with element then it will return it. And logic applies here
     @FindBys({
-            @FindBy(xpath="//input[@type='email']"),
-            @FindBy(id="loginpage-input-email")})
+                    @FindBy(xpath="//input[@type='email']"),
+                    @FindBy(id="loginpage-input-email")})
 
     public WebElement passwordInputFindBys;
+
+
 
 
     public void login(String username, String password){
         iUnderstandButton.click();
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
-        loginButton.click();
+        BrowserUtils.waitFor(2);
+       BrowserUtils.clickWithJS(loginButton);
     }
 
     public void loginAsTeacher(){
-        String username = ConfigurationReader.get("userTeacher");
-        String password = ConfigurationReader.get("userPassword");
+        String username = ConfigurationReader.get("usernameTeacher");
+        String password = ConfigurationReader.get("passwordTeacher");
         login(username, password);
     }
 
@@ -65,23 +68,24 @@ public class LoginPage extends BasePage{
         String password = ConfigurationReader.get("passwordStudent");
         login(username, password);
     }
+
+
     public void loginAsDeveloper() {
         String username = ConfigurationReader.get("usernameDeveloper");
         String password = ConfigurationReader.get("passwordDeveloper");
         login(username, password);
     }
 
-    public String getWarningMessage(String message){
-        String actualMessage = null;
-        if(message.contains("@")||message.contains("fill")||message.contains("position")) {
+    public String getWarningMessage(String expectedErrorMessage){
+        String actualMessage =null;
+        if(expectedErrorMessage.contains("@")){
             actualMessage = usernameInput.getAttribute("validationMessage");
-        }else if(message.contains("character")) {
-            actualMessage = passwordInput.getAttribute("validationMessage");
+        }else if(expectedErrorMessage.contains("characters")){
+            actualMessage =passwordInput.getAttribute("validationMessage");
         }else {
             actualMessage = warningMessage.getText();
         }
 
         return actualMessage;
     }
-
 }

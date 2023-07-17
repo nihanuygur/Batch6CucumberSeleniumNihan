@@ -10,30 +10,34 @@ import org.openqa.selenium.TakesScreenshot;
 import java.time.Duration;
 
 public class Hooks {
-    @Before //cucumber
-    public void setUp(){
 
+
+    @Before
+    public void setup(){
+     //   Driver.get().manage().window().maximize();  //optional
         Driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(15));
     }
 
-    @After //cucumber
-    public void tearDown(Scenario scenario) throws InterruptedException {
+    @After
+    public void tearDown(Scenario scenario){
         if(scenario.isFailed()){
             final byte[] screenshot = ((TakesScreenshot) Driver.get()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png","screenshot");
         }
-        Thread.sleep(2000);
         Driver.closeDriver();
     }
+
     @Before("@db")
-    public void setUpDB(){
-        System.out.println("This is coming from Before DB");
-        System.out.println("Connecting DataBase");
+    public void setupDB(){
+        System.out.println("This is coming from before DB");
+        System.out.println("Connecting Database");
     }
+
 
     @After("@db")
     public void tearDownDB(){
-        System.out.println("This is coming from After DB");
-        System.out.println("Disconnecting DataBase");
+        System.out.println("This is coming from after DB");
+        System.out.println("Disconnecting Database");
     }
+
 }

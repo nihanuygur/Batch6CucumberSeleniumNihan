@@ -1,3 +1,4 @@
+@smoke
 Feature: Navigate Menu with parameters
 
   Background:
@@ -19,19 +20,21 @@ Feature: Navigate Menu with parameters
     And   The user navigates to "My Account" Menu
     Then  The user should be able to see header as "Dashboard"
 
-    #    Create a Scenario Outline covering the above 3 scenarios
 
-  Scenario Outline: Navigates Different Menu Options
-    And   The user navigates to "<menuName>" Menu
-    Then  The user should be able to see header as "<header>"
+
+#    Create a Scenario Outline covering the above 3 scenarios
+
+  Scenario Outline: Navigates menu options
+    And   The user navigates to "<MenuName>" Menu
+    Then  The user should be able to see header as "<Headers>"
     Examples:
-      | menuName   | header                                  |
+      | MenuName   | Headers                                 |
       | Developers | Filter Profiles by Skill or by Location |
       | All Posts  | Posts                                   |
       | My Account | Dashboard                               |
 
-      # Homework
-  # create a new feature named 'NegativeLoginTestScenarioOutline'
-  # Use scenario outline to enter invalid username and/or password and validate the different error message
 
+#    Homework:
+#  Create a new feature named "negativeLoginTestScenarioOutline"
+#  Use scenario outline to enter invalid username and/or password and validate the different error messages
 

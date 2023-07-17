@@ -1,27 +1,31 @@
 package com.eurotech.pages;
 
-import com.eurotech.utilities.Driver;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class ExperiencePage extends BasePage{
 
-    @FindBy(css = "#addexperience-heading")
-    public WebElement addExperienceTitle;
+    @FindBy(xpath = "//*[text()='Add An Experience']")
+    public WebElement header;
 
-    @FindBy(xpath = "//*[@type='submit']")
-    public WebElement submitBtn;
+    @FindBy(xpath = "//*[contains(@placeholder, 'Job Title')]")
+    public WebElement jobTitle;
 
+    @FindBy(xpath = "//*[contains(@placeholder, 'Company')]")
+    public WebElement company;
 
+    @FindBy(xpath = "//*[contains(@placeholder, 'Location')]")
+    public WebElement location;
 
-    public WebElement getField(String fieldName){
-        WebElement element = Driver.get().findElement(By.xpath("//*[contains(@placeholder,'"+fieldName+"')]"));
-        return element;
-    }
+    @FindBy(xpath = "//*[contains(text(), 'From Date')]/../input")
+    public WebElement fromDate;
 
-    public void fillField(String fieldName,String textValue){
-        WebElement element = Driver.get().findElement(By.xpath("//*[contains(@placeholder,'"+fieldName+"')]"));
-        element.sendKeys(textValue);
-    }
+    @FindBy(xpath = "//*[contains(text(), 'To Date')]/../input")
+    public WebElement toDate;
+
+    @FindBy(xpath = "//*[contains(@placeholder, 'Job Description')]")
+    public WebElement jobDescription;
+
+    @FindBy(xpath = "//input[@type='submit']")
+    public WebElement submitButton;
 }
