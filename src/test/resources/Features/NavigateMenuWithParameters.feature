@@ -3,26 +3,26 @@ Feature: Navigate Menu with parameters
   Background:
     Given The user is on the login page
     When  The user logs in using "eurotech@gmail.com" and "Test12345!" credentials
-    Then  The welcome message contains "Teacher"
+    And  The welcome message contains "Teacher"
 
   Scenario: Navigates Developer Menu
-    And   The user navigates to "Developers" Menu
+    When   The user navigates to "Developers" Menu
     Then  The user should be able to see header as "Filter Profiles by Skill or by Location"
 
 
   Scenario: Navigates Posts Menu
-    And   The user navigates to "All Posts" Menu
+    When   The user navigates to "All Posts" Menu
     Then  The user should be able to see header as "Posts"
 
 
   Scenario: Navigates My Account Menu
-    And   The user navigates to "My Account" Menu
+    When   The user navigates to "My Account" Menu
     Then  The user should be able to see header as "Dashboard"
 
     #    Create a Scenario Outline covering the above 3 scenarios
 
   Scenario Outline: Navigates Different Menu Options
-    And   The user navigates to "<menuName>" Menu
+    When  The user navigates to "<menuName>" Menu
     Then  The user should be able to see header as "<header>"
     Examples:
       | menuName   | header                                  |

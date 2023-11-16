@@ -34,7 +34,7 @@ Feature: Negative Login Test
       | eurotech@gmail.com | 1          | Please lengthen this text to 6 characters or more (you are currently using 1 character). |
       | @                  | Test12345! | Please enter a part followed by '@'. '@' is incomplete.                                  |
       |                    | Test12345! | Please fill out this field.                                                              |
-      | aass@adddd@ddd.com | Test12345! | A part following '@' should not contain the symbol '@'.                                  |
+      | ssss@adddd@ddd.com | Test12345! | A part following '@' should not contain the symbol '@'.                                  |
       | dddd@ddd.          | Test12345! | '.' is used at a wrong position in 'ddd.'.                                               |
       | @ddd.aaa           | Test12345! | Please enter a part followed by '@'. '@ddd.aaa' is incomplete.                           |
       | eurotech@gmail     | Test12345  | Please include a valid email!                                                            |
